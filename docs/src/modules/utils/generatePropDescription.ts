@@ -45,6 +45,11 @@ function resolveType(type: NonNullable<doctrine.Tag['type']>): string {
     return `${type.key}: ${type.value ? resolveType(type.value) : 'any'}`;
   }
 
+  if (type.type === 'StringLiteralType') {
+    console.log(type);
+    return 'TEST TEST TEST LITERAL';
+  }
+
   if ('name' in type) {
     return type.name;
   }
